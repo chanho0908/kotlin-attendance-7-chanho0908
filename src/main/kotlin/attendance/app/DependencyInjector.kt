@@ -1,5 +1,9 @@
 package attendance.app
 
+import attendance.data.AttendancesDataSource
+import attendance.data.AttendancesRepositoryImpl
+import attendance.domain.repository.AttendancesRepository
+import attendance.domain.usecase.GetElapsedTimeUseCase
 import attendance.presentation.controller.ViewController
 import attendance.presentation.view.InputView
 import attendance.presentation.view.OutputView
@@ -15,7 +19,14 @@ class DependencyInjector {
     }
 
     private fun injectViewModel(): ViewModel {
-        return ViewModel()
+        val attendancesRepository = AttendancesRepositoryImpl(
+            AttendancesDataSource()
+        )
+        val getElapsedTimeUseCase = GetElapsedTimeUseCase()
+        return ViewModel(
+            attendancesRepository,
+            getElapsedTimeUseCase
+        )
     }
 
     private fun injectInputView() = InputView()
