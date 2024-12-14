@@ -12,7 +12,20 @@ class ViewController(
     fun run(){
         while (true) {
             displayGuideMessage()
+            val service = inputService()
+            if (service == "Q") break
+            if (service == "1"){
 
+            }
+            if (service == "2"){
+
+            }
+            if (service == "3"){
+
+            }
+            if (service == "4") {
+
+            }
         }
     }
 
@@ -26,6 +39,10 @@ class ViewController(
         outputView.printMessage("Q. 종료")
     }
 
+    private fun inputService(): String {
+        val service = inputView.readService()
+        return service
+    }
 }
 
 //오늘은 12월 13일 금요일입니다. 기능을 선택해 주세요.
