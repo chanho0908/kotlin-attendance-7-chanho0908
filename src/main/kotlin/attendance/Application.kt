@@ -1,5 +1,8 @@
 package attendance
 
+import attendance.app.DependencyInjector
+
 fun main() {
-    // TODO: 프로그램 구현
+    val di = DependencyInjector()
+    val controller = di.injectViewController()
 }
