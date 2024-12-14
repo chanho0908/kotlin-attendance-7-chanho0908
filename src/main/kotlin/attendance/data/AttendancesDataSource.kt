@@ -1,6 +1,7 @@
 package attendance.data
 
 import attendance.domain.Attendances
+import attendance.domain.model.AttendanceType
 import java.io.File
 
 class AttendancesDataSource {
@@ -18,7 +19,8 @@ class AttendancesDataSource {
                 Attendances(
                     nickname = spliterator[0],
                     date = date,
-                    time = time
+                    time = time,
+                    AttendanceType.ATTENDANCE
                 )
             }
             .toList()
